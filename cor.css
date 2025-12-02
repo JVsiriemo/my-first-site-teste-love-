@@ -222,7 +222,7 @@ section::after {
 /* ========================================================= */
 /* 05. SEÇÃO 3: GALERIA DE FOTOS */
 /* ========================================================= */
-/* DESKTOP */
+/* -------- DESKTOP -------- */
 .section3 {
   background: #000000;
   padding-top: 100px;
@@ -238,6 +238,7 @@ section::after {
   display: block;
 }
 
+/* GRID DESKTOP */
 .galerianossa {
   width: 92%;
   max-width: 1100px;
@@ -252,7 +253,7 @@ section::after {
 .foto-card {
   width: 100%;
   height: 100%;
-  max-width: 360px;
+  max-width: 360px; /* <-- ISSO É SÓ PARA DESKTOP */
   border-radius: 18px;
   overflow: hidden;
   border: 3px solid #ff3b8d;
@@ -282,14 +283,14 @@ section::after {
   transform: translateY(0);
 }
 
-/* POSICIONAMENTO DO DESKTOP */
+/* Layout Desktop */
 .foto1 { grid-column: 1; grid-row: 1; }
 .foto2 { grid-column: 3; grid-row: 1; }
 .foto5 { grid-column: 2; grid-row: 2; }
 .foto3 { grid-column: 1; grid-row: 3; }
 .foto4 { grid-column: 3; grid-row: 3; }
 
-/* CELULAR MUITO ESTREITO (portrait) */
+/* -------- TELEFONE MUITO ESTREITO (portrait) -------- */
 @media (max-width: 520px) {
   .galerianossa {
     grid-template-columns: 1fr;
@@ -303,28 +304,48 @@ section::after {
   }
 }
 
-/* CELULAR DEITADO / APARECER IGUAL AO DESKTOP */
+/* ---------- TELEFONE DEITADO (600–900px) ----------- */
 @media (max-width: 900px) and (min-width: 600px) {
 
   .galerianossa {
+    width: 95%;
     max-width: 800px;
+    margin: 0 auto;
+
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 230px;
+
+    /* MESMO TAMANHO REAL PRA TODAS AS FOTOS */
+    grid-auto-rows: 250px;
+
     gap: 20px;
+
+    justify-items: stretch;
+    align-items: stretch;
   }
 
-  /* Mantém o layout igual ao desktop */
+  /* Mantém layout igual ao desktop */
   .foto1 { grid-column: 1; grid-row: 1; }
   .foto2 { grid-column: 3; grid-row: 1; }
   .foto5 { grid-column: 2; grid-row: 2; }
   .foto3 { grid-column: 1; grid-row: 3; }
   .foto4 { grid-column: 3; grid-row: 3; }
 
+  /* Tira o max-width que causava o bug */
   .foto-card {
-    max-width: 100%;
+    max-width: none !important;
+    width: 100%;
     height: 100%;
   }
+
+  .foto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
 }
+
 
 /* 06. SEÇÃO 4: TIMELINE */
 /* ========================================================= */
@@ -1178,6 +1199,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
