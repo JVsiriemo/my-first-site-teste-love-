@@ -186,7 +186,7 @@ section::after {
 /* 04. SEÇÃO 2: TEXTO INICIAL */
 /* ========================================================= */
 .section2 {
-  background: #0b0b0b;
+  background: #000000;
   text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -223,7 +223,7 @@ section::after {
 /* 05. SEÇÃO 3: GALERIA DE FOTOS */
 /* ========================================================= */
 .section3 {
-  background: #0b0b0b;
+  background: #000000;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -334,7 +334,7 @@ section::after {
 /* 06. SEÇÃO 4: TIMELINE */
 /* ========================================================= */
 .section4 {
-  background: #0b0b0b;
+  background: #000000;
   padding-top: 60px;
   padding-bottom: 120px;
 }
@@ -478,7 +478,7 @@ section::after {
 /* 07. SEÇÃO 5: FRASES DE AMOR */
 /* ========================================================= */
 .section5 {
-  background: #0b0b0b;
+  background: #000000;
   padding-top: 80px;
   padding-bottom: 100px;
 }
@@ -545,7 +545,7 @@ section::after {
     width: 90%; 
     margin: 0 auto;
     text-align: center;
-    background-color: #0b0b0b;
+    background-color: #000000;
     border: 3px solid #ff3b8d;
     border-radius: 18px;
     box-shadow: 0 0 20px rgba(255, 59, 141, 0.5);
@@ -1183,3 +1183,4 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
