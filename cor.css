@@ -252,24 +252,40 @@ section::after {
   justify-items: center;
 }
 
+/* 🖼️ CARD DA FOTO */
 .foto-card {
   width: 100%;
   height: 100%;
-  max-width: 360px; /* Limite apenas para desktop */
+  max-width: 360px;
   border-radius: 18px;
   overflow: hidden;
   border: 3px solid #ff3b8d;
   background: none;
   position: relative;
-  transition: 0.4s;
+  /* Tempo da transição (0.4s) que você já tinha */
+  transition: all 0.4s ease-in-out; 
+  cursor: pointer; /* Adicionado para indicar clique/interação */
+}
+
+/* 🖱️ EFEITO HOVER/CLICK */
+.foto-card:hover {
+  /* Efeito lift-up/expansão */
+  transform: scale(1.05) translateY(-5px); 
+  /* Brilho neon (box-shadow) */
+  box-shadow: 0 0 25px rgba(255, 59, 141, 0.7);
+  /* Aumenta a borda no hover para dar destaque */
+  border-width: 4px; 
 }
 
 .foto-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Garante que a imagem se mova junto com o card */
+  transition: inherit; 
 }
 
+/* 📝 LEGENDA */
 .foto-card p {
   position: absolute;
   bottom: 0;
@@ -278,9 +294,11 @@ section::after {
   background: rgba(0,0,0,0.55);
   color: #fff;
   transform: translateY(100%);
-  transition: 0.3s;
+  /* 💡 MUDANÇA AQUI: Adiciona o delay (0.5s) */
+  transition: transform 0.3s ease-out 0.05s; 
 }
 
+/* 🖱️ LEGENDA NO HOVER */
 .foto-card:hover p {
   transform: translateY(0);
 }
@@ -1203,6 +1221,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
