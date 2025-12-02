@@ -222,150 +222,110 @@ section::after {
 /* ========================================================= */
 /* 05. SEÇÃO 3: GALERIA DE FOTOS */
 /* ========================================================= */
-/* -------- DESKTOP -------- */
+/* DESKTOP */
 .section3 {
-background: #000000;
-padding-top: 100px;
-padding-bottom: 100px;
+  background: #000000;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .section3 .title-fotos {
-font-size: 1.9rem;
-margin-bottom: 30px;
-color: #ff3b8d;
-height: 80px;
-line-height: 80px;
+  font-size: 1.9rem;
+  margin-bottom: 30px;
+  color: #ff3b8d;
+  height: 80px;
+  line-height: 80px;
+  display: block;
 }
 
-/* GRID /
 .galerianossa {
-width: 92%;
-max-width: 1100px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-auto-rows: 330px;
-gap: 30px;
-justify-items: stretch; / evita cartão ficar pequeno /
-align-items: stretch; / todas alturas iguais */
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 330px;
+  gap: 30px;
+  justify-items: center;
 }
 
-/* CARD /
 .foto-card {
-width: 100%;
-height: 100%;
-max-width: none; / evita foto gigante no mobile */
-border-radius: 18px;
-overflow: hidden;
-position: relative;
-border: 3px solid #ff3b8d;
-background: #000;
-transition: transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-box-shadow .4s ease;
-cursor: pointer;
+  width: 100%;
+  height: 100%;
+  max-width: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 3px solid #ff3b8d;
+  background: none;
+  position: relative;
+  transition: 0.4s;
 }
 
-.foto-card:hover {
-transform: translateY(-10px) scale(1.03);
-box-shadow: 0 15px 30px rgba(255, 59, 141, 0.4);
-}
-
-/* IMAGEM /
 .foto-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-object-position: center; / agora fica igual pra todas */
-border-radius: 18px;
-display: block;
-transition: filter .4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.foto-card:hover img {
-filter: brightness(1.1);
-}
-
-/* LEGENDA */
 .foto-card p {
-position: absolute;
-bottom: 0;
-width: 100%;
-padding: 10px 8px;
-background: rgba(0,0,0,0.55);
-color: white;
-font-size: 1rem;
-text-align: center;
-border-bottom-left-radius: 18px;
-border-bottom-right-radius: 18px;
-transform: translateY(100%);
-transition: transform .35s ease;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  transform: translateY(100%);
+  transition: 0.3s;
 }
 
 .foto-card:hover p {
-transform: translateY(0);
+  transform: translateY(0);
 }
 
-/* POSIÇÃO DESKTOP */
+/* POSICIONAMENTO DO DESKTOP */
 .foto1 { grid-column: 1; grid-row: 1; }
 .foto2 { grid-column: 3; grid-row: 1; }
 .foto5 { grid-column: 2; grid-row: 2; }
 .foto3 { grid-column: 1; grid-row: 3; }
 .foto4 { grid-column: 3; grid-row: 3; }
 
-/* -------- TELEFONE DEITADO (600–900px) -------- */
+/* CELULAR MUITO ESTREITO (portrait) */
+@media (max-width: 520px) {
+  .galerianossa {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 320px;
+    gap: 18px;
+  }
+
+  .foto1, .foto2, .foto3, .foto4, .foto5 {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+/* CELULAR DEITADO / APARECER IGUAL AO DESKTOP */
 @media (max-width: 900px) and (min-width: 600px) {
 
-.galerianossa {
-width: 100%;
-max-width: 800px;
-margin: 0 auto;
+  .galerianossa {
+    max-width: 800px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 230px;
+    gap: 20px;
+  }
 
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-auto-rows: 230px;      /* todas alturas iguais */
-gap: 20px;
+  /* Mantém o layout igual ao desktop */
+  .foto1 { grid-column: 1; grid-row: 1; }
+  .foto2 { grid-column: 3; grid-row: 1; }
+  .foto5 { grid-column: 2; grid-row: 2; }
+  .foto3 { grid-column: 1; grid-row: 3; }
+  .foto4 { grid-column: 3; grid-row: 3; }
 
-justify-items: stretch;   /* impede fotos pequenas */
-align-items: stretch;
-
-
+  .foto-card {
+    max-width: 100%;
+    height: 100%;
+  }
 }
 
-/* MESMA POSIÇÃO DO DESKTOP */
-.foto1 { grid-column: 1; grid-row: 1; }
-.foto2 { grid-column: 3; grid-row: 1; }
-.foto5 { grid-column: 2; grid-row: 2; }
-.foto3 { grid-column: 1; grid-row: 3; }
-.foto4 { grid-column: 3; grid-row: 3; }
-
-.foto-card {
-width: 100%;
-height: 100%;
-max-width: none !important;
-}
-
-.foto-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-object-position: center; /* 100% igual */
-}
-}
-
-/* -------- CELULAR MUITO ESTREITO -------- */
-@media (max-width: 520px) {
-.galerianossa {
-grid-template-columns: 1fr;
-grid-auto-rows: 320px;
-gap: 18px;
-}
-
-.foto1, .foto2, .foto3, .foto4, .foto5 {
-grid-column: auto !important;
-grid-row: auto !important;
-}
-}
-/* ========================================================= */
 /* 06. SEÇÃO 4: TIMELINE */
 /* ========================================================= */
 .section4 {
@@ -1218,6 +1178,7 @@ grid-row: auto !important;
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
