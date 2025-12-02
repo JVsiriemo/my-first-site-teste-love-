@@ -31,7 +31,7 @@ function triggerExplosion(startX, startY) {
     overlay.style.display = 'block';
     overlay.style.zIndex = '99999'; // Força z-index alto
 
-    let burstCount = window.innerWidth < 480 ? 80 : 150; // Quantidade de corações
+    let burstCount = window.innerWidth < 480 ? 80 : 100; // Quantidade de corações
     const colors = ['#ff3b8d', '#ffffff', '#e95592', '#c442a3', '#bb1669']; 
 
     for (let i = 0; i < burstCount; i++) {
@@ -308,5 +308,6 @@ const quizData = [
         });
     }, { threshold: 0.1 }); 
     animatedItems.forEach(item => observer.observe(item));
+
 
 });
