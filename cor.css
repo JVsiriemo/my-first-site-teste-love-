@@ -222,7 +222,7 @@ section::after {
 /* ========================================================= */
 /* 05. SEÇÃO 3: GALERIA DE FOTOS */
 /* ========================================================= */
-/* DESKTOP */
+/* -------- DESKTOP -------- */
 .section3 {
   background: #000000;
   padding-top: 100px;
@@ -235,9 +235,9 @@ section::after {
   color: #ff3b8d;
   height: 80px;
   line-height: 80px;
-  display: block;
 }
 
+/* GRID */
 .galerianossa {
   width: 92%;
   max-width: 1100px;
@@ -249,47 +249,68 @@ section::after {
   justify-items: center;
 }
 
+/* CARD */
 .foto-card {
   width: 100%;
   height: 100%;
   max-width: 360px;
   border-radius: 18px;
   overflow: hidden;
-  border: 3px solid #ff3b8d;
-  background: none;
   position: relative;
-  transition: 0.4s;
+  border: 3px solid #ff3b8d;
+  background: #000;
+  transition: transform .4s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow .4s ease;
+  cursor: pointer;
 }
 
+.foto-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(255, 59, 141, 0.4);
+}
+
+/* IMAGEM */
 .foto-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
+  border-radius: 18px;
+  display: block;
+  transition: filter .4s ease;
 }
 
+.foto-card:hover img {
+  filter: brightness(1.1);
+}
+
+/* LEGENDA */
 .foto-card p {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 10px 8px;
   background: rgba(0,0,0,0.55);
-  color: #fff;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
   transform: translateY(100%);
-  transition: 0.3s;
+  transition: transform .35s ease;
 }
 
 .foto-card:hover p {
   transform: translateY(0);
 }
 
-/* POSICIONAMENTO DO DESKTOP */
+/* POSIÇÃO DESKTOP */
 .foto1 { grid-column: 1; grid-row: 1; }
 .foto2 { grid-column: 3; grid-row: 1; }
 .foto5 { grid-column: 2; grid-row: 2; }
 .foto3 { grid-column: 1; grid-row: 3; }
 .foto4 { grid-column: 3; grid-row: 3; }
 
-/* CELULAR MUITO ESTREITO (portrait) */
+/* -------- CELL MUITO ESTREITO (PORTRAIT) -------- */
 @media (max-width: 520px) {
   .galerianossa {
     grid-template-columns: 1fr;
@@ -303,7 +324,7 @@ section::after {
   }
 }
 
-/* CELULAR DEITADO / APARECER IGUAL AO DESKTOP */
+/* -------- TELEFONE DEITADO (600px - 900px) -------- */
 @media (max-width: 900px) and (min-width: 600px) {
 
   .galerianossa {
@@ -313,17 +334,11 @@ section::after {
     gap: 20px;
   }
 
-  /* Mantém o layout igual ao desktop */
   .foto1 { grid-column: 1; grid-row: 1; }
   .foto2 { grid-column: 3; grid-row: 1; }
   .foto5 { grid-column: 2; grid-row: 2; }
   .foto3 { grid-column: 1; grid-row: 3; }
   .foto4 { grid-column: 3; grid-row: 3; }
-
-  .foto-card {
-    max-width: 100%;
-    height: 100%;
-  }
 }
 
 /* ========================================================= */
@@ -1179,6 +1194,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
