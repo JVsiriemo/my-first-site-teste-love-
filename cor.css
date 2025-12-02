@@ -345,6 +345,15 @@ section::after {
         grid-auto-rows: 250px;
         gap: 20px;
     }
+  
+.foto-card { 
+  max-width: 100%; 
+  height: 100%;        
+} 
+  .foto-card img { 
+    object-position: center; 
+}
+
 /* PHONE DEITADO */
 @media (max-width: 900px) and (min-width: 600px) {
 
@@ -1229,6 +1238,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
