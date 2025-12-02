@@ -551,19 +551,6 @@ section::after {
 }
 
 /* ========================================================= */
-/* 08. MEDIA QUERIES (RESPONSIVIDADE COMPLETA) */
-/* ========================================================= */
-@media (max-width: 768px) {
-  .galerianossa { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 260px; }
-}
-
-/* Celular (max-width: 520px) */
-@media (max-width: 520px) {
-  .galerianossa { grid-template-columns: 1fr; grid-auto-rows: 280px; gap: 18px; }
-  .foto-card { max-width: 420px; width: 92%; }
-}
-
-/* ========================================================= */
 /* 09. SEÇÃO 6: LOVE METER (ESTÁTICO) */
 /* ========================================================= */
 .section6 {
@@ -1216,6 +1203,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
