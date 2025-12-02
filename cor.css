@@ -352,7 +352,24 @@ section::after {
         gap: 18px;
     }
 }
+/* PHONE DEITADO: manter layout de 3 colunas, mas menor */
+@media (max-width: 900px) and (min-width: 600px) {
+    .galerianossa {
+        width: 96%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 250px;
+        gap: 20px;
+    }
 
+    .foto-card {
+        max-width: 100%;
+        height: 100%;
+    }
+
+    .foto-card img {
+        object-position: center;
+    }
+}
 /* ========================================================= */
 /* 06. SEÇÃO 4: TIMELINE */
 /* ========================================================= */
@@ -1206,5 +1223,6 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
