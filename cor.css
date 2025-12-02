@@ -329,6 +329,29 @@ section::after {
 .foto4 { grid-column: 3; grid-row: 3; }
 .foto5 { grid-column: 2; grid-row: 2; }
 
+/* MOBILE / TELAS ESTREITAS */
+@media (max-width: 900px) {
+    .galerianossa {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 260px;
+        gap: 20px;
+    }
+
+    /* Remover posições fixas no mobile */
+    .foto1, .foto2, .foto3, .foto4, .foto5 {
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+}
+
+/* MOBILE MUITO ESTREITO (portrait) */
+@media (max-width: 520px) {
+    .galerianossa {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 320px;
+        gap: 18px;
+    }
+}
 
 /* ========================================================= */
 /* 06. SEÇÃO 4: TIMELINE */
@@ -1183,4 +1206,5 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
