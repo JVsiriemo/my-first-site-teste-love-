@@ -148,16 +148,16 @@ const quizData = [
         wrongMessage: "Esqueceu do chocolate? So comprando outro pra resolver isso aí. 🚨"
     },
     { 
-        question: "Qual minha comida favorita?", 
-        options: ["Pizza", "Sushi", "Hambúrguer", "Lasanha"], 
+        question: "Qual e o nosso filme que mais gostamos de assistir juntos?", 
+        options: ["Esposa de mentirinha", "Como se fosse a primeira vez", "O halloween de hubie", "misterio no mediterrâneo"], 
         answer: 0, 
-        correctMessage: "Acertou, era bem óbvio. 🍕", 
-        wrongMessage: "Você errou isso? Eu literalmente como pizza igual doido. 😅"
+        correctMessage: "Acertouu, a gente adorou esse filme muito bomm. 🎥", 
+        wrongMessage: "Você errouu, to até em duvida qual vc escolheu. 😅"
     },
     { 
         question: "Qual é a data oficial do nosso namoro?", 
-        options: ["04/12", "29/02", "25/12", "01/01"], 
-        answer: 0, 
+        options: ["25/12", "29/02", "04/12", "01/01"], 
+        answer: 2, 
         correctMessage: "Parabens, lembrou do NOSSO dia. 👏", 
         wrongMessage: "Ai não da ne, as opções que eu coloquei tambem e vc errouuu. 😭"
     },
@@ -168,19 +168,19 @@ const quizData = [
         correctMessage: "Exatamente. Ser sincera e uma coisa bem dificil KKKKKKKK. 👀", 
         wrongMessage: "Relaxa amorrr, como eu dizia \"a verdade doi mais que a mentira\" 😂"
     },
-    { 
-        question: "Qual e o meu jogo favorito?", 
-        options: ["Brawl stars", "Minecraft", "Rocket league", "Ghost of tsushima"], 
-        answer: 3, 
-        correctMessage: "Aêêê, eu amo esse jogo . 🎮", 
-        wrongMessage: "Errou eu falo desse jogo igual doidoo. 😭"
+{ 
+        question: "Qual demonstração de amor a gente mais gosta?", 
+        options: ["Atos de serviço", "Tempo de qualidade", "Toque fisico", "Presentear"], 
+        answer: 2, 
+        correctMessage: "Aêêê, obvio que e toque fisico, amo vc minha carrapatinha . 🤗", 
+        wrongMessage: "Errou a gente fica grudado igual chiclete. 😭"
     },
     { 
         question: "O que eu mais amo em você?", 
         options: ["Seu sorriso", "Seu abraço", "Seu cheiro", "Tudo!"], 
         answer: 3, 
         correctMessage: "É claro que era tudo. Fica difícil escolher só uma coisa em você. 😘", 
-        wrongMessage: "Era tudo! Como assim escolher só uma coisa em VOCÊ?🥲"
+        wrongMessage: "Era tudo! Como assim escolher só uma coisa em VOCÊ? 🥲"
     }
 ];
 
@@ -311,3 +311,4 @@ const quizData = [
 
 
 });
+
