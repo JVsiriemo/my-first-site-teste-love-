@@ -245,44 +245,32 @@ section::after {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  /* O minmax(0, 1fr) impede que a foto estoure o tamanho da coluna */
   grid-template-columns: repeat(3, minmax(0, 1fr)); 
   grid-auto-rows: 330px;
   gap: 30px;
   justify-items: center;
 }
 
-/* 🖼️ CARD DA FOTO */
+/* 🖼️ CARD DA FOTO (NOVO CÓDIGO AQUI) */
 .foto-card {
   width: 100%;
   height: 100%;
-  max-width: 360px;
+  max-width: 360px; /* Limite apenas para desktop */
   border-radius: 18px;
   overflow: hidden;
   border: 3px solid #ff3b8d;
   background: none;
   position: relative;
-  /* Tempo da transição (0.4s) que você já tinha */
+  /* 💡 REFORÇO: TRANSITION para o movimento de lift-up */
   transition: all 0.4s ease-in-out; 
-  cursor: pointer; /* Adicionado para indicar clique/interação */
-}
-
-/* 🖱️ EFEITO HOVER/CLICK */
-.foto-card:hover {
-  /* Efeito lift-up/expansão */
-  transform: scale(1.05) translateY(-5px); 
-  /* Brilho neon (box-shadow) */
-  box-shadow: 0 0 25px rgba(255, 59, 141, 0.7);
-  /* Aumenta a borda no hover para dar destaque */
-  border-width: 4px; 
+  cursor: pointer;
 }
 
 .foto-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Garante que a imagem se mova junto com o card */
-  transition: inherit; 
+  transition: inherit; /* Garante que a imagem siga o card */
 }
 
 /* 📝 LEGENDA */
@@ -294,8 +282,18 @@ section::after {
   background: rgba(0,0,0,0.55);
   color: #fff;
   transform: translateY(100%);
-  /* 💡 MUDANÇA AQUI: Adiciona o delay (0.5s) */
+  /* 💡 REFORÇO: DELAY E TRANSITION para a legenda */
   transition: transform 0.3s ease-out 0.05s; 
+}
+
+/* 🖱️ EFEITO HOVER NO CARD (LIFT-UP + BRILHO NEON) */
+.foto-card:hover {
+  /* Efeito lift-up/expansão */
+  transform: scale(1.05) translateY(-5px); 
+  /* Brilho neon (box-shadow) */
+  box-shadow: 0 0 25px rgba(255, 59, 141, 0.7);
+  /* Borda mais grossa no hover */
+  border-width: 4px; 
 }
 
 /* 🖱️ LEGENDA NO HOVER */
@@ -1221,6 +1219,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
