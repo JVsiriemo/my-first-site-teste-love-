@@ -1,0 +1,1185 @@
+/* ========================================================= */
+/* ======================= ÍNDICE CSS ====================== */
+/* ========================================================= */
+/* 00. VARIÁVEIS */
+/* 01. RESET / BASE */
+/* 02. ESTILOS BASE DAS SEÇÕES (LINHAS PADRONIZADAS) */
+/* 03. SEÇÃO 1: INTRODUÇÃO */
+/* 04. SEÇÃO 2: TEXTO INICIAL */
+/* 05. SEÇÃO 3: GALERIA DE FOTOS */
+/* 06. SEÇÃO 4: TIMELINE */
+/* 07. SEÇÃO 5: FRASES */
+/* 08. MEDIA QUERIES */
+/* 09. SEÇÃO 6: LOVE METER */
+/* 10. SEÇÃO 7 E DIVISORES */
+/* 11. KEYFRAMES E ANIMAÇÕES (CORAÇÃO GIGANTE + EXPLOSÃO) */
+/* ========================================================= */
+
+/* ========================================================= */
+/* 00. VARIÁVEIS */
+/* ========================================================= */
+:root {
+  /* CORES DA LINHA DEGRADÊ */
+  --linha-horizontal-inicio: #e95592; /* Rosa Pink */
+  --linha-horizontal-meio: #c442a3;   /* Lilas claro */
+  --linha-horizontal-fim: #793a92;    /* Roxo */
+
+  /* POSIÇÃO VERTICAL DAS LINHAS SEPARADORAS */
+  --linha-sec1-bottom: 10px; 
+  --linha-sec2-bottom: 10px; 
+  --linha-sec3-bottom: 10px;
+  --linha-sec4-bottom: 10px;
+  --linha-sec5-bottom: 10px; 
+
+  /* CONFIGURAÇÕES GERAIS */
+  --font-size-base: 1.1rem;
+  --cor-destaque: #ff3b8d;
+  --cor-segundaria: #bb1669;
+}
+
+/* ========================================================= */
+/* 01. RESET / BASE E TIPOGRAFIA GERAL */
+/* ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; 
+  background-color: #000000; 
+  color: #f0f0f0; 
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+  overflow-x: hidden; 
+}
+
+h1, h2, h3, h5, h6 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--cor-destaque);
+}
+h4 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--cor-destaque);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========================================================= */
+/* 02. ESTILOS BASE DAS SEÇÕES */
+/* ========================================================= */
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 5%; 
+  overflow: hidden; 
+}
+
+/* Linha horizontal divisória (Topo da seção) */
+section::before { 
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%; 
+  max-width: 1200px; 
+  height: 4px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--linha-horizontal-inicio), var(--linha-horizontal-meio) 60%, var(--linha-horizontal-fim));
+  opacity: 0.95;
+  top: 0; 
+  display: none; 
+}
+
+/* Ativa a linha do topo apenas na Seção 1 */
+.section1::before {
+  display: block; 
+  top: var(--linha-sec1-bottom);
+}
+
+/* Linha horizontal divisória (Fundo da seção) - PADRONIZADA */
+section::after { 
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%; 
+  max-width: 1200px; 
+  height: 4px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--linha-horizontal-inicio), var(--linha-horizontal-meio) 60%, var(--linha-horizontal-fim));
+  opacity: 0.95;
+}
+
+/* Configuração individual das linhas de baixo */
+.section1::after { bottom: var(--linha-sec1-bottom); display: block; }
+.section2::after { bottom: var(--linha-sec2-bottom); display: block; } 
+.section3::after { bottom: var(--linha-sec3-bottom); display: block; }
+.section4::after { bottom: var(--linha-sec4-bottom); display: block; }
+.section5::after { bottom: var(--linha-sec5-bottom); display: block; } 
+
+/* Remove a linha automática da seção 6 (usaremos a manual) */
+.section6::after {
+    display: none;
+}
+
+/* CLASSE AUXILIAR PARA ANIMAÇÃO DE SCROLL */
+.reveal-on-scroll, 
+.timeline-item {
+  opacity: 0; 
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.reveal-on-scroll.is-visible, 
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ========================================================= */
+/* 03. SEÇÃO 1: INTRODUÇÃO */
+/* ========================================================= */
+.section1 {
+  min-height: 100vh; 
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.section1 h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: fadeInDown 1.2s ease-out; 
+}
+
+.section1 .mensagem1 {
+  font-size: 1.4rem;
+  margin-top: 10px;
+  color: #bb1669;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.2s ease-out 0.3s backwards; 
+}
+
+/* ÚNICO LUGAR COM BATIMENTO CARDÍACO (SEÇÃO 1) */
+.section1 h2 {
+  font-size: 3rem;
+}
+
+/* ========================================================= */
+/* 04. SEÇÃO 2: TEXTO INICIAL */
+/* ========================================================= */
+.section2 {
+  background: #0b0b0b;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* Aplica o max-width ao container de conteúdo interno (reveal-on-scroll) */
+.section2 .reveal-on-scroll {
+    max-width: 800px; 
+    width: 100%;
+    margin: 0 auto;
+}
+
+.textinho {
+  font-size: 1.5rem;
+  max-width: 700px;
+  color: #bb1669;
+  line-height: 1.8;
+  text-align: left;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section2 h4 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.section2 h5 {
+    font-size: 2rem;
+     animation: heartbeat 3s infinite; 
+}
+
+/* ========================================================= */
+/* 05. SEÇÃO 3: GALERIA DE FOTOS */
+/* ========================================================= */
+.section3 {
+  background: #0b0b0b;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section3 .title-fotos {
+  font-size: 1.9rem;
+  margin-bottom: 30px;
+  color: #ff3b8d;
+  height: 80px;
+  line-height: 80px;
+  display: block;
+}
+
+/* Configuração do Grid da Galeria */
+.galerianossa {
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 330px;
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Cartão da Foto (Wrapper) */
+.foto-card {
+  width: 100%;
+  height: 100%;
+  max-width: 360px;
+  border-radius: 18px; 
+  overflow: hidden; 
+  border: 3px solid #ff3b8d;
+  box-shadow: 0 12px 32px transparent;
+  background: none; 
+  display: block; 
+  position: relative;
+  transform: translateZ(0); 
+  -webkit-transform: translateZ(0);
+  line-height: 0; 
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* Efeito Hover no Cartão */
+.foto-card:hover {
+  transform: translateY(-10px) scale(1.03); 
+  box-shadow: 0 15px 30px rgba(255, 59, 141, 0.4);
+  z-index: 10;
+}
+
+/* Imagem dentro do cartão */
+.foto-card img {
+  width: 101%; 
+  height: 101%; 
+  margin: -1px; 
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  border-radius: 18px; 
+  outline: 1px solid transparent; 
+  transition: filter 0.4s ease;
+}
+
+/* Imagem brilha no hover */
+.foto-card:hover img {
+  filter: brightness(1.1);
+}
+
+/* Legenda da Foto */
+.foto-card p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 8px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1rem; 
+  line-height: 1.2; 
+  text-align: center;
+  z-index: 10;
+  border-bottom-left-radius: 18px; 
+  border-bottom-right-radius: 18px; 
+  filter: none;
+  transform: translateY(100%); 
+  transition: transform 0.3s ease;
+}
+
+/* Legenda sobe ao passar o mouse */
+.foto-card:hover p {
+  transform: translateY(0);
+}
+
+/* Controle de Posição no Grid */
+.foto1 { grid-column: 1; grid-row: 1; }
+.foto2 { grid-column: 3; grid-row: 1; }
+.foto3 { grid-column: 1; grid-row: 3; }
+.foto4 { grid-column: 3; grid-row: 3; }
+.foto5 { grid-column: 2; grid-row: 2; }
+
+
+/* ========================================================= */
+/* 06. SEÇÃO 4: TIMELINE */
+/* ========================================================= */
+.section4 {
+  background: #0b0b0b;
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+/* Frases da timeline */
+.primeiroe, .primeiraf, .ano, .alianca, .buque, .perder {
+    font-size: 1.1rem;
+    color: #bb1669;
+    margin-top: 8px;
+    text-align: left;
+}
+.timeline-title {
+    font-size: 2rem;
+    color: var(--cor-destaque);
+    margin-bottom: 40px;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Linha vertical central */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(#ff3b8d, #ad1484);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Item da Timeline */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  padding: 100px 0;
+}
+
+/* Bolinha Central */
+.timeline-dot {
+  width: 15px;
+  height: 16px;
+  background: #ff3b8d;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+/* Conteúdo (Texto) da Timeline */
+.timeline-content {
+  background: #0a0a0a;
+  padding: 16px 20px;
+  max-width: 340px;
+  border-radius: 12px;
+  border: 4px solid #ff3b8d;
+  box-shadow: 0 0 25px rgba(255, 59, 141, 0.6);
+  position: relative;
+  z-index: 3;
+}
+
+/* Posicionamento Alternado (Esquerda/Direita) */
+.timeline-item:nth-child(odd) .timeline-content,
+.timeline-item:nth-child(even) .timeline-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Ímpar na Esquerda */
+.timeline-item:nth-child(odd) .timeline-content {
+  right: calc(50% + 40px);
+  left: auto;
+  text-align: right;
+}
+
+/* Par na Direita */
+.timeline-item:nth-child(even) .timeline-content {
+  left: calc(50% + 40px);
+  right: auto;
+  text-align: left;
+}
+
+/* ---------- ADAPTIVO ---------- */
+
+/* Landscape / Tablets (mobile deitado) - mantém alternância, só reduz offsets */
+@media (max-width: 900px) {
+  .timeline {
+    padding: 30px 10px;
+  }
+  .timeline-item {
+    padding: 80px 0;
+  }
+  .timeline-content {
+    max-width: 320px;
+  }
+  .timeline-item:nth-child(odd) .timeline-content {
+    right: calc(50% + 20px);
+  }
+  .timeline-item:nth-child(even) .timeline-content {
+    left: calc(50% + 20px);
+  }
+}
+
+/* Portrait phones - linha vertical à esquerda, conteúdo empilhado (modo tradicional mobile) */
+@media (max-width: 520px) {
+  .timeline::before {
+    left: 40px;
+    transform: none;
+    height: 100%;
+  }
+  .timeline-dot {
+    left: 40px;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+  .timeline-item {
+    padding: 70px 0 70px 70px;
+  }
+  .timeline-item .timeline-content {
+    position: relative;
+    margin: 0;
+    margin-left: 40px;
+    max-width: calc(100% - 80px);
+    text-align: left;
+    left: auto;
+    right: auto;
+    transform: none;
+  }
+}
+/* ========================================================= */
+/* 07. SEÇÃO 5: FRASES DE AMOR */
+/* ========================================================= */
+.section5 {
+  background: #0b0b0b;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.frase-amomais {
+  font-size: 2rem;
+  color: #ff3b8d;
+  margin-bottom: 24px;
+}
+
+.frases-amor {
+  font-size: 1.25rem;
+  color: #bb1669;
+  max-width: 780px;
+  margin: 10px auto;
+  font-style: italic;
+}
+
+/* ========================================================= */
+/* 10. SEÇÃO 7 E LINHA DIVISÓRIA FINAL */
+/* ========================================================= */
+
+/* Garante que a Seção 7 mostre as linhas automáticas */
+.section7 {
+    padding-bottom: 80px; /* Espaço para a linha de baixo não grudar no conteúdo */
+    position: relative;
+}
+
+.section7::before,
+.section7::after {
+    display: block !important;
+    content: "";
+}
+
+.section7 .quiz-container {
+    margin-bottom: 0;
+}
+
+/* ========================================================= */
+/* 08. MEDIA QUERIES (RESPONSIVIDADE COMPLETA) */
+/* ========================================================= */
+@media (max-width: 768px) {
+  .galerianossa { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 260px; }
+}
+
+/* Celular (max-width: 520px) */
+@media (max-width: 520px) {
+  .galerianossa { grid-template-columns: 1fr; grid-auto-rows: 280px; gap: 18px; }
+  .foto-card { max-width: 420px; width: 92%; }
+}
+
+/* ========================================================= */
+/* 09. SEÇÃO 6: LOVE METER (ESTÁTICO) */
+/* ========================================================= */
+.section6 {
+  background: #000000;
+  padding-top: 80px;
+  padding-bottom: 40px; 
+}
+
+/* Wrapper Grande com Borda Neon */
+.love-meter-full-wrapper {
+    max-width: 550px; 
+    width: 90%; 
+    margin: 0 auto;
+    text-align: center;
+    background-color: #0b0b0b;
+    border: 3px solid #ff3b8d;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(255, 59, 141, 0.5);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: borderGlow 4s infinite alternate;
+}
+
+.mensagemdaprt {
+    font-size: 2rem;
+    color: #ff3b8d;
+    margin-bottom: 25px;
+}
+
+/* Contêiner da Foto */
+.love-photo-container {
+    width: 280px; 
+    height: 280px;
+    margin: 0 auto 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 3px solid #ff3b8d;
+    box-shadow: 0 0 10px rgba(255, 59, 141, 0.5);
+    background-color: #0b0b0b;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.love-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.instruction-text {
+    font-size: 1.25rem;
+    color: #bb1669;
+    max-width: 780px;
+    margin: 0 auto 25px; 
+    text-align: center;
+}
+
+/* Wrapper Interno */
+.love-meter-wrapper {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    width: 100%; 
+    padding: 0; 
+    border: none; 
+    background-color: transparent; 
+    box-shadow: none;
+}
+
+/* Barra de Progresso */
+.progress-bar-wrapper {
+    width: 100%; 
+    height: 12px; /* Altura reduzida */
+    background-color: #222;
+    border-radius: 6px; 
+    margin-bottom: 15px; 
+    overflow: hidden; 
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.progress-bar-fill {
+    height: 100%; 
+    width: 0%;
+    background: linear-gradient(90deg, #ff3b8d, #ad1484, #ff3b8d);
+    background-size: 200% 100%;
+    border-radius: 6px;
+    transition: width 0.2s ease-out;
+    animation: shimmer 2s infinite linear;
+}
+
+/* Botões de Coração */
+.hearts-container {
+    display: flex; 
+    justify-content: center;
+    gap: 40px;
+    margin: 10px 0 15px; 
+}
+
+.heart-button {
+    font-size: 3.5rem; 
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease-out, filter 0.1s ease-out;
+    opacity: 1; 
+}
+
+.heart-button:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #ff3b8d);
+}
+.heart-button:active {
+    transform: scale(0.9);
+    filter: brightness(1.2);
+}
+
+.love-level-text {
+    display: block; 
+    font-size: 1.4rem; 
+    color: #bb1669;
+    margin-top: 10px;
+}
+.love-level-text span {
+    font-weight: bold;
+    color: #ff3b8d;
+}
+.love-level-textdigaaqui {
+   font-size: 1.1rem;
+    color: #ff3b8d;
+    margin-top: 8px;
+}
+.lovepercent {
+    font-size: 1.1rem;
+    color: #bb1669;
+    margin-top: 5px;
+}
+/* ========================================================= */
+/* 11. ANIMAÇÕES E KEYFRAMES (CORAÇÃO GIGANTE + EXPLOSÃO) */
+/* ========================================================= */
+
+/* Brilho correndo na barra */
+@keyframes shimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* Brilho suave na borda do Love Meter */
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 59, 141, 0.3); }
+    100% { box-shadow: 0 0 25px rgba(255, 59, 141, 0.8); }
+}
+
+/* Batimento Seção 1 */
+@keyframes heartbeat {
+    0% { transform: scale(1); } 14% { transform: scale(1.15); } 28% { transform: scale(1); } 42% { transform: scale(1.15); } 70% { transform: scale(1); }
+}
+
+/* ========================================================= */
+/* 11. KEYFRAMES E ANIMAÇÕES (CORAÇÃO GIGANTE + EXPLOSÃO) */
+/* ========================================================= */
+
+/* 11.1. Overlay de Celebração (Tela que cobre tudo durante a explosão) */
+#celebration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fundo escuro para focar na explosão. O JS muda o display para block */
+    display: none; 
+    overflow: hidden; 
+}
+
+/* 11.2. Coração Gigante Clicável (Criado via JS no body) */
+/* Coração Gigante */
+#final-heart {
+    position: fixed; top: 50%; left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 10vw;
+    z-index: 2147483647 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    transition: transform 0.5s;
+}
+#final-heart.show-big-heart {
+    transform: translateX(-50%) scale(1);
+    animation: bigHeartBeat 1s infinite;
+}
+@keyframes bigHeartBeat {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+}
+
+/* EXPLOSÃO DE PARTÍCULAS (CORRIGIDO) */
+#celebration-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 20000 !important;
+    pointer-events: none; display: none; overflow: hidden;
+}
+
+.heart-confetti {
+    position: absolute; 
+    width: 20px; 
+    height: 20px;
+    background-color: #ff3b8d; 
+    border-radius: 50%; /* Bolinha se não carregar o after/before */
+    
+    /* Estado inicial: visível e no centro */
+    opacity: 1; 
+    transform: translate(0, 0) scale(0.5); 
+    
+    /* Animação */
+    animation: burst-effect 1.5s ease-out forwards;
+}
+
+/* Formato de Coração */
+.heart-confetti::before, .heart-confetti::after {
+    content: ""; position: absolute; width: 100%; height: 100%;
+    background-color: inherit; border-radius: 50%;
+}
+.heart-confetti::before { left: -50%; }
+.heart-confetti::after { top: -50%; }
+
+.heart-confetti.white-heart { 
+    background-color: #fff !important; 
+    box-shadow: 0 0 10px #fff; 
+}
+
+/* KEYFRAME CORRIGIDO */
+@keyframes burst-effect {
+    0% {
+        opacity: 1;
+        /* Começa no centro (onde foi criado) */
+        transform: translate(0, 0) scale(0.5) rotate(45deg);
+    }
+    100% {
+        opacity: 0;
+        /* Vai para as coordenadas definidas no JS */
+        transform: translate(var(--tx), var(--ty)) scale(1.2) rotate(45deg);
+    }
+}
+
+/* EXTRA: Ajustes rápidos para mobile */
+@media (max-width: 480px) {
+  section { padding: 50px 4%; }
+  h1, h2, h3, h4, h5, h6 { font-size: 1.4rem; }
+  .textinho { font-size: 1.1rem; }
+  .love-meter-full-wrapper { padding: 20px; }
+}
+
+/* ========================================================= */
+/* 12. ESTILOS DA SEÇÃO 7: QUIZ (ATUALIZADO) */
+/* ========================================================= */
+
+/* 1. LIMPEZA DA SEÇÃO PAI (SECTION 7) */
+.section7 {
+    /* O mais importante: Remove todo o espaçamento interno inferior. */
+    /* Isso garante que o conteúdo termine onde o quadrado termina. */
+    padding-bottom: 0px !important; 
+    
+    /* Remove as linhas automáticas (que cortavam o texto) */
+    border: none !important; 
+}
+
+/* 2. REMOÇÃO DE LINHAS AUTOMÁTICAS (Fixa a linha cortando as palavras) */
+.section7::before,
+.section7::after {
+    display: none !important; 
+}
+
+/* 3. LIMPEZA E AJUSTE DO QUADRADO DO QUIZ */
+.section7 .quiz-container {
+    /* Remove margens e paddings inferiores do quadrado */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    
+    /* Adiciona um pequeno padding lateral ou superior se necessário, mas não no bottom */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+}
+
+
+/* 4. POSICIONAMENTO E ESTILO FINAL DO DIVISOR MANUAL */
+.section7 .section-divider {
+    /* Controla a distância do divisor: Empurra a linha para BEM abaixo do quadrado */
+    margin-top: 80px !important; 
+    
+    /* Afasta a linha do título da Seção 8 */
+    margin-bottom: 80px !important; 
+    
+    /* Retorna a largura padrão */
+    width: 100% !important; 
+    
+    /* Garante que o divisor tenha controle sobre o fluxo (pode ser crucial) */
+    display: block !important; 
+    
+    /* Z-index para garantir que não esteja "atrás" de nada */
+    position: relative; 
+    z-index: 5;
+}
+
+/* 5. AJUSTE DE ESPAÇAMENTO DA SEÇÃO 8 */
+.section8 {
+    padding-top: 20px; 
+}
+
+/* Aumenta o espaço entre o Love Meter e o Quiz para a linha não grudar */
+.section6 .section-divider {
+  margin-bottom: 60px; 
+}
+
+.quiz-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* Centralizado */
+  background-color: #0b0b0b;
+  border: 3px solid var(--cor-destaque);
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(255, 59, 141, 0.3);
+  text-align: center;
+}
+.quiz-header1 {
+  font-size: 1.8rem;
+  color: var(--cor-destaque);
+  margin-bottom: 15px;
+}
+.quiz-intro {
+  color: #bb1669;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+}
+
+.quiz-header2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #ff3b8d;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.quiz-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+/* Lista de Botões de Opção */
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quiz-btn {
+  background: transparent;
+  border: 2px solid var(--cor-destaque);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.quiz-btn:hover {
+  background-color: var(--cor-destaque);
+  color: #000;
+  transform: scale(1.02);
+}
+
+/* Estilos de Feedback (Certo/Errado) */
+.quiz-btn.correct {
+  background-color: #28a745; /* Verde */
+  border-color: #28a745;
+  color: #fff;
+}
+
+.quiz-btn.wrong {
+  background-color: #dc3545; /* Vermelho */
+  border-color: #dc3545;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.quiz-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Botão Continuar/Reiniciar */
+.next-btn {
+  margin-top: 25px;
+  background-color: #333;
+  border-color: #fff;
+  width: 100%;
+  font-weight: bold;
+}
+.next-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+#quiz-feedback {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  min-height: 30px;
+  line-height: 1.4;
+}
+
+/* Resultado Final */
+#quiz-result h3 {
+  color: var(--cor-destaque);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+#quiz-result p {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: #fff;
+}
+/* ================== */
+/* 13. SEÇÃO 8: QUEBRA-CABEÇA DA PROMESSA */
+/* ================== */
+/* Reativa a linha de baixo padrão da seção 8 */
+.section8::before {
+    content: "";
+    position: absolute;
+    top: 30px; /* Linha fica colada na parte superior da section 8 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
+    height: 4px;
+    border-radius: 6px;
+    background: linear-gradient(
+        90deg,
+        var(--linha-horizontal-inicio),
+        var(--linha-horizontal-meio) 60%,
+        var(--linha-horizontal-fim)
+    );
+    opacity: 0.95;
+    display: block;
+}
+.section8::after {
+    display: none !important;
+}
+.section8 {
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    text-align: center;
+    position: relative;
+    /* Reativa a linha de cima da Seção 8 */
+}
+.section8::before {
+    display: block !important;
+    content: "";
+}
+
+/* Container do Quebra-Cabeça (GRID 4x4) */
+.puzzle-container {
+    display: grid; /* Mudança para Grid para alinhar perfeito */
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    grid-gap: 20px; /* Espaço entre os quadrados */
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 700px; /* Largura controlada para caber os 4 */
+}
+
+/* Responsividade para celulares (vira 2x4) */
+@media (max-width: 600px) {
+    .puzzle-container {
+        grid-template-columns: repeat(2, 1fr); 
+        max-width: 350px;
+    }
+}
+
+/* PEÇA DO QUEBRA-CABEÇA (QUADRADO ORIGINAL) */
+.puzzle-piece {
+    width: 100%; /* Ocupa a célula do grid */
+    aspect-ratio: 1 / 1; /* Garante que seja um quadrado perfeito */
+    background-color: var(--cor-destaque); 
+    border-radius: 15px; /* Bordas levemente arredondadas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem; /* Tamanho do emoji */
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Sombra 3D */
+    transition: all 0.3s ease-out;
+    position: relative;
+    user-select: none;
+}
+
+/* Cores Alternadas para ficar bonito */
+.puzzle-piece:nth-child(odd) { background-color: #793a92; } /* Roxo */
+.puzzle-piece:nth-child(even) { background-color: #c442a3; } /* Lilás */
+.puzzle-piece:nth-child(3n) { background-color: #ff3b8d; } /* Rosa */
+
+/* Efeito Hover (Levantar) */
+.puzzle-piece:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 60, 140, 0.6);
+    z-index: 10;
+}
+
+/* Número no canto */
+.puzzle-piece .num {
+    position: absolute;
+    top: 8px;       
+    left: 10px;     
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(255,255,255, 0.8);    
+}
+
+/* Animação ao clicar (Pop e Sumir) */
+.puzzle-piece.clicked {
+    animation: popSquare 0.5s forwards;
+    pointer-events: none;
+}
+@keyframes popSquare {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* ========================================================= */
+/* ESTILO DA MENSAGEM POP-UP (PAPEL ANTIGO REALISTA)         */
+/* ========================================================= */
+
+#feedback-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-5deg); 
+    
+    /* VISUAL DE PAPEL ANTIGO COM TEXTURA */
+    background-color: #f4e4bc; 
+    /* Textura sutil de papel */
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png"); 
+    
+    border: 1px solid #c0a062; 
+    color: #4a3b2a; /* Marrom escuro */
+    
+    padding: 30px 40px;
+    
+    /* Cantos irregulares (efeito papel feito à mão) */
+    border-radius: 2px 25px 2px 25px; 
+    
+    /* Sombra suave e realista */
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.5);
+    
+    /* Tipografia de Carta */
+    font-family: 'Dancing Script', 'Brush Script MT', cursive; /* Tenta usar uma fonte cursiva se disponível */
+    font-size: 1.8rem;
+    line-height: 1.4;
+    text-align: center;
+    
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efeito elástico */
+    
+    max-width: 85%;
+    width: 400px;
+}
+
+/* Linhas decorativas no topo e base do papel */
+#feedback-message::before,
+#feedback-message::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: rgba(74, 59, 42, 0.2);
+}
+#feedback-message::before { top: 15px; }
+#feedback-message::after { bottom: 15px; }
+
+/* Classe ativa para mostrar */
+#feedback-message.show-message {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+}
+/* ========================================================= */
+/* ESTILO DA REVELAÇÃO FINAL (APÓS TODOS OS QUADRADOS)        */
+/* ========================================================= */
+.final-promise-box {
+    margin: 50px auto 0;
+    max-width: 700px; /* Limita a largura */
+    padding: 30px;
+    background-color: #080808; /* Fundo escuro para contrastar */
+    border-radius: 30px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.final-promise-box.visible {
+    opacity: 1;
+}
+
+.revealed-title {
+    font-family: 'Dancing Script', cursive; /* Mantém a fonte fofa */
+    font-size: 2.5rem;
+    color: var(--cor-destaque); /* Usa a cor rosa/lilas */
+    margin-bottom: 20px;
+}
+
+/* Coração de Revelação */
+.big-reveal-heart {
+    font-size: 8rem; /* Coração bem grande! */
+    line-height: 1;
+    margin: 20px 0;
+    animation: heartBeat 3s infinite; /* Adiciona um batimento suave */
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.final-text {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.signature-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
+}
