@@ -310,93 +310,53 @@ section::after {
 .foto3 { grid-column: 1; grid-row: 3; }
 .foto4 { grid-column: 3; grid-row: 3; }
 
-/* -------- CELL MUITO ESTREITO (PORTRAIT) -------- */
-@media (max-width: 520px) {
-  .galerianossa {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 320px;
-    gap: 18px;
-  }
-
-  .foto1, .foto2, .foto3, .foto4, .foto5 {
-    grid-column: auto !important;
-    grid-row: auto !important;
-  }
-}
-
-/* -------- TELEFONE DEITADO (600px - 900px) -------- */
+/* ================================
+   TELEFONE DEITADO (600–900px)
+   Layout IGUAL ao desktop, só menor
+   ================================ */
 @media (max-width: 900px) and (min-width: 600px) {
 
   .galerianossa {
-    width: 96%;
+    width: 95%;
     max-width: 800px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 260px; /* ALTURA FIXA */
+
+    /* Mesmo tamanho para TODAS as linhas */
+    grid-auto-rows: 240px;
+
     gap: 20px;
 
-    align-items: stretch;  /* TODAS AS COLUNAS DO MESMO TAMANHO */
+    /* Todas colunas do MESMO TAMANHO */
+    align-items: stretch;
     justify-items: stretch;
   }
 
-  /* Posições iguais ao desktop */
+  /* MANTÉM O MESMO LAYOUT DO DESKTOP */
   .foto1 { grid-column: 1; grid-row: 1; }
   .foto2 { grid-column: 3; grid-row: 1; }
   .foto5 { grid-column: 2; grid-row: 2; }
   .foto3 { grid-column: 1; grid-row: 3; }
   .foto4 { grid-column: 3; grid-row: 3; }
 
+  /* Cartão corrige tamanho mantendo escala */
   .foto-card {
     width: 100%;
     height: 100%;
-    max-width: 100%;
+    max-width: 100% !important; /* a correção REAL */
   }
 
-  .foto-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-}
-/* --- Correção REAL para celular deitado --- */
-@media (max-width: 900px) and (min-width: 600px) {
-
-  .galerianossa {
-    max-width: 800px;
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 240px;
-    gap: 20px;
-
-    /* OBRIGA TODAS AS COLUNAS A TER O MESMO TAMANHO */
-    align-items: stretch;
-    justify-items: stretch;
-  }
-
-  /* Remove limite que fazia a da direita ficar enorme */
-  .foto-card {
-    width: 100%;
-    height: 100%;
-    max-width: none !important;
-  }
-
-  /* As imagens vão preencher IGUALZINHO */
+  /* Imagens todas exatamente iguais */
   .foto-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 30%;
   }
-
-  /* Mantém exatamente seu layout original */
-  .foto1 { grid-column: 1; grid-row: 1; }
-  .foto2 { grid-column: 3; grid-row: 1; }
-  .foto5 { grid-column: 2; grid-row: 2; }
-  .foto3 { grid-column: 1; grid-row: 3; }
-  .foto4 { grid-column: 3; grid-row: 3; }
 }
+
 /* ========================================================= */
 /* 06. SEÇÃO 4: TIMELINE */
 /* ========================================================= */
@@ -1250,6 +1210,7 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
 
 
 
