@@ -1239,7 +1239,7 @@ section::after {
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
 /* ========================================================= */
-/* 14. ESTILO DO PLAYER DE MÚSICA (SOLUÇÃO FINAL PARA MOBILE) */
+/* 14. ESTILO DO PLAYER DE MÚSICA (SOLUÇÃO MAIS ESTÁVEL) */
 /* ========================================================= */
 .music-player-box {
     margin: 30px auto 30px auto; 
@@ -1270,25 +1270,41 @@ audio {
     height: 50px;        
     border-radius: 30px; 
     
-    /* 💥 NEUTRALIZAÇÃO NATIVA: Tenta forçar o navegador a ignorar o estilo padrão */
-    -webkit-appearance: none; 
-    appearance: none;
+    /* 🔴 AQUI ESTÁ A MUDANÇA: COR SÓLIDA ESCURA E SEM FILTRO INVERT! */
+    /* Isso deve forçar o fundo a ser uma cor limpa, eliminando o cinza/preto nativo. */
+    background-color: #242424; /* Fundo escuro uniforme */
     
-    /* Cor de fundo para o filtro funcionar sem bugs na borda cinza/preta */
-    background-color: #f8f8f8; /* Branco bem clarinho */
-    
-    /* O filtro que inverte as cores e dá o toque rosa/escuro */
-    filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg);
+    /* Removemos o filtro de cores para evitar artefatos em celulares */
+    /* filter: none; */ 
     
     outline: none;
     border: none;
-    box-shadow: none; 
+    box-shadow: 0 0 10px rgba(235, 59, 132, 0.4); /* Leve brilho rosa */
 }
 
-/* Garante que o container interno também não tenha fundo preto */
+/* Tentativa de estilizar os controles internos (para a cor dos botões) */
 audio::-webkit-media-controls-enclosure {
-    -webkit-appearance: none !important;
-    background-color: #f8f8f8 !important; 
-    border-radius: 30px;
+    /* Força o contêiner a se parecer com o elemento HTML e não com o nativo do celular */
+    -webkit-appearance: none;
     
+    /* Define a cor de fundo interna para ser igual à cor do player */
+    background-color: #242424; 
+    border-radius: 30px;
+}
+
+/* Tentativa de mudar a cor dos ícones (Play, Pause) */
+audio::-webkit-media-controls-panel {
+    filter: sepia(1) hue-rotate(290deg) saturate(3); /* Tenta colorir os botões de rosa */
+}
+
+/* Corrige o problema de zoom (que é um comportamento nativo do navegador) */
+/* Isso força o tamanho a ser mantido independentemente do zoom do usuário */
+@media (max-width: 600px) {
+    audio {
+        width: 90%;
+        max-width: 350px;
+        /* Garante que o tamanho não mude no zoom */
+        min-height: 50px;
+        max-height: 50px;
+    }
 }
