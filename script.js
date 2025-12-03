@@ -204,8 +204,8 @@ const quizData = [
     },
     { 
         question: "Qual é a data oficial do nosso namoro?", 
-        options: ["04/12", "29/02", "25/12", "01/01"], 
-        answer: 0, 
+        options: ["25/12", "29/02", "04/12", "01/01"], 
+        answer: 2, 
         correctMessage: "Parabens, lembrou do NOSSO dia. 👏", 
         wrongMessage: "Ai não da ne, as opções que eu coloquei tambem e vc errouuu. 😭"
     },
@@ -220,7 +220,7 @@ const quizData = [
         question: "Qual demonstração de amor a gente mais gosta?", 
         options: ["Atos de serviço", "Tempo de qualidade", "Toque fisico", "Presentear"], 
         answer: 2, 
-        correctMessage: "Aêêê, obvio que e toque fisico, amo vc minha carrapatinha . 🤗", 
+        correctMessage: "Aêêê, obvio que é toque fisico, amo vc minha carrapatinha . 🤗", 
         wrongMessage: "Errou a gente fica grudado igual chiclete. 😭"
     },
     { 
@@ -358,4 +358,5 @@ const quizData = [
     animatedItems.forEach(item => observer.observe(item));
 
 });
+
 
