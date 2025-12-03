@@ -1263,30 +1263,25 @@ section::after {
 audio {
     width: 100%;
     border-radius: 30px;
-    background-color: #f0f0f0;
+    background: rgba(255, 180, 230, 0.25);
+    backdrop-filter: blur(6px);
 
     -webkit-appearance: none;
     appearance: none;
-    outline: none;
     border: none;
-
-    /* Tira o filtro do próprio <audio> */
-    /* filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg); */
+    outline: none;
 
     box-shadow: 0 0 10px rgba(235, 59, 132, 0.4);
 }
 
 audio::-webkit-media-controls-enclosure {
-    background-color: #f0f0f0 !important;
+    background: transparent !important;
     border-radius: 30px !important;
-
-    /* aplica o filtro só no enclosure, não no audio inteiro */
-    filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg);
 }
 
-/* aumenta a altura mínima só no iPhone */
 @supports (-webkit-touch-callout: none) {
     audio {
-        min-height: 56px;
+        min-height: 65px;
     }
+}
 
