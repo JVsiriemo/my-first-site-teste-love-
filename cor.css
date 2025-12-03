@@ -1239,10 +1239,9 @@ section::after {
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
 /* ========================================================= */
-/* 14. ESTILO DO PLAYER DE MÚSICA (CORRIGIDO PARA CELULAR) */
+/* 14. ESTILO DO PLAYER DE MÚSICA (SOLUÇÃO FINAL PARA MOBILE) */
 /* ========================================================= */
 .music-player-box {
-    /* Margem ajustada para separar bem */
     margin: 30px auto 30px auto; 
     text-align: center;
     position: relative;
@@ -1271,21 +1270,25 @@ audio {
     height: 50px;        
     border-radius: 30px; 
     
-    /* 🔴 O SEGREDO ESTÁ AQUI: */
-    /* Damos um fundo claro sólido. Ao inverter, ele vira o fundo escuro bonito */
-    /* Isso remove a borda preta causada pela transparência do iOS */
-    background-color: #f2f2f2; 
+    /* 💥 NEUTRALIZAÇÃO NATIVA: Tenta forçar o navegador a ignorar o estilo padrão */
+    -webkit-appearance: none; 
+    appearance: none;
     
-    /* Filtro para deixar nas cores do site */
+    /* Cor de fundo para o filtro funcionar sem bugs na borda cinza/preta */
+    background-color: #f8f8f8; /* Branco bem clarinho */
+    
+    /* O filtro que inverte as cores e dá o toque rosa/escuro */
     filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg);
     
     outline: none;
-    border: none; /* Garante que não tenha borda nativa */
+    border: none;
     box-shadow: none; 
 }
 
-/* Remove a sombra extra que alguns iPhones colocam */
+/* Garante que o container interno também não tenha fundo preto */
 audio::-webkit-media-controls-enclosure {
-    background-color: #f2f2f2;
+    -webkit-appearance: none !important;
+    background-color: #f8f8f8 !important; 
     border-radius: 30px;
+    
 }
