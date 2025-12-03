@@ -1247,7 +1247,8 @@ section::after {
     position: relative;
     z-index: 20;
     width: 100%;
-    max-width: 350px; 
+    max-width: 380px; /* era 350 */
+    padding: 4px;     /* dá espaço interno para o Safari respirar */
 }
 
 .music-player-box p {
@@ -1262,6 +1263,7 @@ section::after {
 /* Estilização do player de áudio */
 audio {
     width: 100%;
+    min-height: 70px; /* sobe mais um pouco */
     border-radius: 30px;
     background: rgba(255, 180, 230, 0.25);
     backdrop-filter: blur(6px);
@@ -1281,7 +1283,8 @@ audio::-webkit-media-controls-enclosure {
 
 @supports (-webkit-touch-callout: none) {
     audio {
-        min-height: 65px;
+        min-height: 78px;
     }
 }
+
 
