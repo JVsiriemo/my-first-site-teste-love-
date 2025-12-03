@@ -1,5 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const alertDiv = document.getElementById('orientation-alert');
+    let autoHideTimer; 
+    
+    // Função para verificar se a altura é maior que a largura (Modo Portrait).
+    function isPortraitMode() {
+        return window.innerHeight > window.innerWidth;
+    }
 
+    function checkAndShowAlert() {
+        // Cancela qualquer timer ativo para evitar múltiplos sumiços
+        clearTimeout(autoHideTimer); 
+        
+        if (isPortraitMode()) {
+            // Se estiver em modo portrait:
+            
+            // 1. FORÇA O DISPLAY
+            alertDiv.style.display = 'flex'; 
+
+            // 2. Transição da opacidade para aparecer suavemente
+            setTimeout(() => {
+                alertDiv.style.opacity = '1';
+            }, 10); 
+            
+            
+            // 3. 🚨 NOVO TIMER DE 4 SEGUNDOS PARA FORÇAR O SUMIÇO
+            autoHideTimer = setTimeout(() => {
+                // Faz o alerta sumir suavemente
+                alertDiv.style.opacity = '0'; 
+                
+                // Esconde completamente após a transição de 0.5s
+                setTimeout(() => {
+                    alertDiv.style.display = 'none';
+                }, 500); 
+                
+            }, 5000); // 🚨 MUDANÇA: 4 segundos
+            
+        } else {
+            // Se a tela estiver mais larga que alta (Landscape):
+            alertDiv.style.display = 'none';
+            alertDiv.style.opacity = '0';
+        }
+    }
+
+    // --- EXECUÇÃO ---
+    checkAndShowAlert();
+    window.addEventListener('resize', checkAndShowAlert);
+    window.addEventListener('orientationchange', checkAndShowAlert);
+});
+document.addEventListener('DOMContentLoaded', () => {
 /* ========================================================= */
     /* PARTE 1: LOVE METER E EXPLOSÃO (CORRIGIDO E UNIFICADO)    */
     /* ========================================================= */
@@ -31,7 +79,7 @@ function triggerExplosion(startX, startY) {
     overlay.style.display = 'block';
     overlay.style.zIndex = '99999'; // Força z-index alto
 
-    let burstCount = window.innerWidth < 480 ? 80 : 100; // Quantidade de corações
+    let burstCount = window.innerWidth < 480 ? 80 : 150; // Quantidade de corações
     const colors = ['#ff3b8d', '#ffffff', '#e95592', '#c442a3', '#bb1669']; 
 
     for (let i = 0; i < burstCount; i++) {
@@ -151,13 +199,13 @@ const quizData = [
         question: "Qual e o nosso filme que mais gostamos de assistir juntos?", 
         options: ["Esposa de mentirinha", "Como se fosse a primeira vez", "O halloween de hubie", "misterio no mediterrâneo"], 
         answer: 0, 
-        correctMessage: "Acertouu, a gente adorou esse filme muito bomm. 🎥", 
-        wrongMessage: "Você errouu, to até em duvida qual vc escolheu. 😅"
+        correctMessage: "Acertou, era bem óbvio. 🍕", 
+        wrongMessage: "Você errou isso? Eu literalmente como pizza igual doido. 😅"
     },
     { 
         question: "Qual é a data oficial do nosso namoro?", 
-        options: ["25/12", "29/02", "04/12", "01/01"], 
-        answer: 2, 
+        options: ["04/12", "29/02", "25/12", "01/01"], 
+        answer: 0, 
         correctMessage: "Parabens, lembrou do NOSSO dia. 👏", 
         wrongMessage: "Ai não da ne, as opções que eu coloquei tambem e vc errouuu. 😭"
     },
@@ -168,11 +216,11 @@ const quizData = [
         correctMessage: "Exatamente. Ser sincera e uma coisa bem dificil KKKKKKKK. 👀", 
         wrongMessage: "Relaxa amorrr, como eu dizia \"a verdade doi mais que a mentira\" 😂"
     },
-{ 
+    { 
         question: "Qual demonstração de amor a gente mais gosta?", 
         options: ["Atos de serviço", "Tempo de qualidade", "Toque fisico", "Presentear"], 
         answer: 2, 
-        correctMessage: "Aêêê, obvio que e toque fisico, amo vc minha carrapatinha . 🤗", 
+        correctMessage: "Aêêê, obvio que e toque fisico, amo vc minha carrapatinha . 🎮", 
         wrongMessage: "Errou a gente fica grudado igual chiclete. 😭"
     },
     { 
@@ -180,7 +228,7 @@ const quizData = [
         options: ["Seu sorriso", "Seu abraço", "Seu cheiro", "Tudo!"], 
         answer: 3, 
         correctMessage: "É claro que era tudo. Fica difícil escolher só uma coisa em você. 😘", 
-        wrongMessage: "Era tudo! Como assim escolher só uma coisa em VOCÊ? 🥲"
+        wrongMessage: "Era tudo! Como assim escolher só uma coisa em VOCÊ?🥲"
     }
 ];
 
@@ -309,6 +357,4 @@ const quizData = [
     }, { threshold: 0.1 }); 
     animatedItems.forEach(item => observer.observe(item));
 
-
 });
-
