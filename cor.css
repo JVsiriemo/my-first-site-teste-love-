@@ -1239,32 +1239,49 @@ section::after {
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
 /* ========================================================= */
-/* 14. ESTILO DO PLAYER DE MÚSICA (ADICIONADO) */
+/* 14. ESTILO DO PLAYER DE MÚSICA (CORRIGIDO E POSICIONADO) */
 /* ========================================================= */
 .music-player-box {
-    margin: 10px auto 30px auto; /* Espaçamento */
+    /* Margem ajustada para ficar bem no meio do texto e dos emojis */
+    margin: 25px auto 25px auto; 
     text-align: center;
     position: relative;
     z-index: 20;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     animation: fadeInUp 1.2s ease-out 0.5s backwards;
 }
 
 .music-player-box p {
-    color: #ff3b8d; /* Rosa neon */
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+    color: #ff3b8d; 
+    font-size: 1rem; /* Texto um pouco maior */
+    margin-bottom: 12px;
     font-weight: bold;
     letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 59, 141, 0.5); /* Leve brilho no texto */
 }
 
 /* Estilização do player de áudio */
 audio {
-    width: 80%;
-    max-width: 300px;
-    height: 40px;
-    border-radius: 20px;
-    /* Truque de filtro para deixar o player com cores escuras/rosa */
+    width: 90%;          /* Mais largo para tentar mostrar mais controles */
+    max-width: 350px;    /* Limite máximo no PC */
+    height: 54px;        /* MAIS ALTO: Facilita clicar no celular */
+    border-radius: 27px; /* Bordas bem redondas */
+    
+    /* Filtro ajustado para manter a cor mas tirar bugs visuais */
     filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg);
+    
     outline: none;
-    box-shadow: 0 0 15px rgba(255, 59, 141, 0.4);
+    
+    /* A sombra agora é suave e não cria borda preta dura */
+    box-shadow: none; 
+}
+
+/* Adicionamos um brilho no container, não no player, para evitar a borda preta */
+.music-player-box:hover audio {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
 }
