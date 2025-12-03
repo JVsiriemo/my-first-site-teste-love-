@@ -360,22 +360,26 @@ const quizData = [
 });
 
 /* ========================================================= */
-    /* PARTE 4: MÚSICA AUTOMÁTICA AO INTERAGIR                   */
+    /* PARTE 4: MÚSICA - CONTROLE CUSTOMIZADO                     */
     /* ========================================================= */
     const audioPlayer = document.getElementById('bgMusic');
+    const playButton = document.getElementById('customPlayButton');
     
-    // Tenta tocar assim que carrega (vai falhar na maioria dos celulares, mas funciona em alguns PCs)
-    if(audioPlayer) {
-        audioPlayer.volume = 0.5; // Começa com volume 50%
-        const playPromise = audioPlayer.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.log("Autoplay bloqueado pelo navegador. Aguardando clique.");
-                // Se falhar, adiciona um evento de clique em qualquer lugar da tela para iniciar
-                document.body.addEventListener('click', () => {
-                    audioPlayer.play();
-                }, { once: true }); // {once: true} garante que só execute na primeira vez
-            });
-        }
+    if(audioPlayer && playButton) {
+        audioPlayer.volume = 0.5; // Define o volume padrão
+
+        playButton.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                // Toca e muda o ícone para pausa
+                audioPlayer.play();
+                playButton.innerText = '⏸️'; // Ícone de Pausa
+            } else {
+                // Pausa e muda o ícone para play
+                audioPlayer.pause();
+                playButton.innerText = '▶️'; // Ícone de Play
+            }
+        });
+
+        // 🚨 REMOVEMOS O CÓDIGO DE AUTOPLAY DE TELA INTEIRA AQUI!
+        // O play só acontece agora quando ela clicar no botão ▶️
     }
