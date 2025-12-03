@@ -199,8 +199,8 @@ const quizData = [
         question: "Qual e o nosso filme que mais gostamos de assistir juntos?", 
         options: ["Esposa de mentirinha", "Como se fosse a primeira vez", "O halloween de hubie", "misterio no mediterrâneo"], 
         answer: 0, 
-        correctMessage: "Acertou, era bem óbvio. 🍕", 
-        wrongMessage: "Você errou isso? Eu literalmente como pizza igual doido. 😅"
+        correctMessage: "Acertouu, eu amei esse filme amor. 🎥", 
+        wrongMessage: "Você errouu, to até em duvida qual você escolheu. 😅"
     },
     { 
         question: "Qual é a data oficial do nosso namoro?", 
@@ -220,7 +220,7 @@ const quizData = [
         question: "Qual demonstração de amor a gente mais gosta?", 
         options: ["Atos de serviço", "Tempo de qualidade", "Toque fisico", "Presentear"], 
         answer: 2, 
-        correctMessage: "Aêêê, obvio que e toque fisico, amo vc minha carrapatinha . 🎮", 
+        correctMessage: "Aêêê, obvio que e toque fisico, amo vc minha carrapatinha . 🤗", 
         wrongMessage: "Errou a gente fica grudado igual chiclete. 😭"
     },
     { 
@@ -358,3 +358,4 @@ const quizData = [
     animatedItems.forEach(item => observer.observe(item));
 
 });
+
