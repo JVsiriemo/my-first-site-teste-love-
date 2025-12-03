@@ -160,7 +160,7 @@ section::after {
   display: block;
     font-size: 1.8rem;
     color: #ff3b8d;
-    top: 25%;
+    top: 23%;
 }
 #orientation-alert {
     /* Estado Padrão (ESCONDIDO) */
@@ -1238,3 +1238,4 @@ section::after {
     font-weight: bold;
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
+
