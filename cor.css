@@ -1239,7 +1239,7 @@ section::after {
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
 /* ========================================================= */
-/* 14. ESTILO DO PLAYER DE MÚSICA (CUSTOMIZADO) */
+/* 14. ESTILO DO PLAYER DE MÚSICA (VISUAL ORIGINAL ESTÁVEL) */
 /* ========================================================= */
 .music-player-box {
     margin: 30px auto 30px auto; 
@@ -1247,41 +1247,45 @@ section::after {
     position: relative;
     z-index: 20;
     width: 100%;
-    
-    /* Box de fundo totalmente preto para garantir a cor */
-    background-color: #000;
-    max-width: 350px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(235, 59, 132, 0.4);
+    max-width: 350px; 
 }
 
 .music-player-box p {
     color: #eb3b84; 
     font-size: 1rem; 
-    margin-bottom: 5px;
-    padding-top: 15px; /* Espaço para o texto */
+    margin-bottom: 12px;
     font-weight: bold;
     letter-spacing: 1px;
     text-shadow: 0 0 5px rgba(252, 36, 126, 0.5);
 }
 
-/* Esconde o player nativo que estava dando problema */
+/* Estilização do player de áudio */
 audio {
-    display: none; 
-}
-
-/* Estilo do botão de Play/Pause que ela vai ver */
-.play-button {
-    background: none;
-    border: none;
-    color: #eb3b84; /* Cor do ícone (rosa) */
-    font-size: 2.5rem; /* Ícone grande */
-    cursor: pointer;
-    padding: 10px 20px 20px 20px; /* Espaço para clicar */
-    transition: transform 0.2s;
+    width: 100%; 
+    height: 50px;        
+    border-radius: 30px; 
+    
+    /* 🎨 TRUQUE ESSENCIAL: Fundo branco sólido. Ao aplicar o filtro, o branco inverte para o escuro desejado, eliminando os artefatos cinzas/pretos. */
+    background-color: #f0f0f0; 
+    
+    /* Limpeza */
+    -webkit-appearance: none; 
+    appearance: none;
     outline: none;
+    border: none;
+    
+    /* Filtro original para o visual rosa/lilás */
+    filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg);
+    
+    box-shadow: 0 0 10px rgba(235, 59, 132, 0.4); 
 }
 
-.play-button:hover {
-    transform: scale(1.1);
+/* Garante que o container interno também respeite o estilo */
+audio::-webkit-media-controls-enclosure {
+    background-color: #f0f0f0 !important;
+    border-radius: 30px !important;
+    -webkit-appearance: none !important;
+    
+    /* Garante que o filtro seja aplicado corretamente na borda dos controles */
+    filter: inherit; 
 }
