@@ -185,43 +185,43 @@ const quizData = [
         question: "Onde foi nosso primeiro encontro de verdade?", 
         options: ["No shopping", "No restaurante", "No parque", "No cinema"], 
         answer: 1, 
-        correctMessage: "Boa! Aquele dia na rota v8 tava mt bom. 😜", 
-        wrongMessage: "Errou, to ate com medo do que vc clicou ao inves de restaurante. 😐"
+        correctMessage: "Boa! Aquele dia na Rota V8 tava muito bom. 😜", 
+        wrongMessage: "Errou, to até com medo do qual você clicou ao invés de restaurante. 😐"
     },
     { 
         question: "Qual foi a primeira coisa que eu te dei?", 
         options: ["Uma flor", "Chocolate", "Uma cartinha", "A aliança"], 
         answer: 1, 
-        correctMessage: "Aí sim, lembrou do meu querido ferreiro rocher. 🍫", 
-        wrongMessage: "Esqueceu do chocolate? So comprando outro pra resolver isso aí. 🚨"
+        correctMessage: "Aí sim, lembrou do meu querido Ferreiro Rocher. 🍫", 
+        wrongMessage: "Esqueceu do chocolate? Só comprando outro pra resolver isso aí. 🚨"
     },
     { 
-        question: "Qual e o nosso filme que mais gostamos de assistir juntos?", 
-        options: ["Esposa de mentirinha", "Como se fosse a primeira vez", "O halloween de hubie", "misterio no mediterrâneo"], 
+        question: "Qual é o filme que mais gostamos de assistir juntos?", 
+        options: ["Esposa de Mentirinha", "Como se fosse a primeira vez", "O Halloween de Hubie", "Misterio no Mediterrâneo"], 
         answer: 0, 
         correctMessage: "Acertouu, eu amei esse filme amor. 🎥", 
-        wrongMessage: "Você errouu, to até em duvida qual você escolheu. 😅"
+        wrongMessage: "Você errouu, to até em dúvida no qual você escolheu. 😅"
     },
     { 
         question: "Qual é a data oficial do nosso namoro?", 
         options: ["25/12", "29/02", "04/12", "01/01"], 
         answer: 2, 
-        correctMessage: "Parabens, lembrou do NOSSO dia. 👏", 
-        wrongMessage: "Ai não da ne, as opções que eu coloquei tambem e vc errouuu. 😭"
+        correctMessage: "Parabénsss, você lembrou do NOSSO dia. 👏", 
+        wrongMessage: "Ai não dá né, as opções que eu coloquei também e você errouuu. 😭"
     },
     { 
-        question: "Quem é mais ciumento na relação?", 
-        options: ["Eu", "Você", "Os dois igual", "Ninguém"], 
+        question: "Quem é mais ciumento da relação?", 
+        options: ["Eu", "Você", "Os dois iguais", "Ninguém"], 
         answer: 1, 
-        correctMessage: "Exatamente. Ser sincera e uma coisa bem dificil KKKKKKKK. 👀", 
-        wrongMessage: "Relaxa amorrr, como eu dizia \"a verdade doi mais que a mentira\" 😂"
+        correctMessage: "Exatamente. Ser sincera é uma coisa bem dificil KKKKKKKK. 👀", 
+        wrongMessage: "Relaxa amorrr, como eu dizia \"A verdade doi mais que a mentira.\" 😂"
     },
     { 
-        question: "Qual demonstração de amor a gente mais gosta?", 
-        options: ["Atos de serviço", "Tempo de qualidade", "Toque fisico", "Presentear"], 
+        question: "Qual a demonstração de amor que a gente mais gosta?", 
+        options: ["Atos de serviço", "Tempo de qualidade", "Toque físico", "Presentes"], 
         answer: 2, 
-        correctMessage: "Aêêê, obvio que é toque fisico, amo vc minha carrapatinha . 🤗", 
-        wrongMessage: "Errou a gente fica grudado igual chiclete. 😭"
+        correctMessage: "Aêêê, óbvio que é toque físico, amo você minha carrapatinha. 🤗", 
+        wrongMessage: "Errou, nós adoramos ficar grudados igual chiclete. 😭"
     },
     { 
         question: "O que eu mais amo em você?", 
@@ -379,3 +379,4 @@ const quizData = [
             });
         }
     }
+
