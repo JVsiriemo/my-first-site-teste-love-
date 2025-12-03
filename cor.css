@@ -1239,11 +1239,11 @@ section::after {
     color: var(--linha-horizontal-inicio); /* Um toque de cor no final */
 }
 /* ========================================================= */
-/* 14. ESTILO DO PLAYER DE MÚSICA (CORRIGIDO E POSICIONADO) */
+/* 14. ESTILO DO PLAYER DE MÚSICA (CORRIGIDO PARA CELULAR) */
 /* ========================================================= */
 .music-player-box {
-    /* Margem ajustada para ficar bem no meio do texto e dos emojis */
-    margin: 25px auto 25px auto; 
+    /* Margem ajustada para separar bem */
+    margin: 30px auto 30px auto; 
     text-align: center;
     position: relative;
     z-index: 20;
@@ -1256,32 +1256,36 @@ section::after {
 }
 
 .music-player-box p {
-    color: #ff3b8d; 
-    font-size: 1rem; /* Texto um pouco maior */
+    color: #eb3b84; 
+    font-size: 1rem; 
     margin-bottom: 12px;
     font-weight: bold;
     letter-spacing: 1px;
-    text-shadow: 0 0 5px rgba(255, 59, 141, 0.5); /* Leve brilho no texto */
+    text-shadow: 0 0 5px rgba(252, 36, 126, 0.5);
 }
 
 /* Estilização do player de áudio */
 audio {
-    width: 90%;          /* Mais largo para tentar mostrar mais controles */
-    max-width: 350px;    /* Limite máximo no PC */
-    height: 54px;        /* MAIS ALTO: Facilita clicar no celular */
-    border-radius: 27px; /* Bordas bem redondas */
+    width: 85%;          
+    max-width: 350px;    
+    height: 50px;        
+    border-radius: 30px; 
     
-    /* Filtro ajustado para manter a cor mas tirar bugs visuais */
+    /* 🔴 O SEGREDO ESTÁ AQUI: */
+    /* Damos um fundo claro sólido. Ao inverter, ele vira o fundo escuro bonito */
+    /* Isso remove a borda preta causada pela transparência do iOS */
+    background-color: #f2f2f2; 
+    
+    /* Filtro para deixar nas cores do site */
     filter: invert(90%) sepia(20%) saturate(300%) hue-rotate(280deg);
     
     outline: none;
-    
-    /* A sombra agora é suave e não cria borda preta dura */
+    border: none; /* Garante que não tenha borda nativa */
     box-shadow: none; 
 }
 
-/* Adicionamos um brilho no container, não no player, para evitar a borda preta */
-.music-player-box:hover audio {
-    transform: scale(1.02);
-    transition: transform 0.2s ease;
+/* Remove a sombra extra que alguns iPhones colocam */
+audio::-webkit-media-controls-enclosure {
+    background-color: #f2f2f2;
+    border-radius: 30px;
 }
